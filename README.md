@@ -59,7 +59,7 @@ trình nếu bị vi phạm (xem mục 6).
 │   ├── stress_test.cpp       stress test ngẫu nhiên đối chiếu mảng thường
 │   ├── generator.cpp         bộ sinh dữ liệu vào
 │   ├── make_expected.ps1     sinh đáp án chuẩn cho test cố định
-│   └── cases/                16 test cố định (.in) kèm đáp án chuẩn (.out)
+│   └── cases/                19 test cố định (.in) kèm đáp án chuẩn (.out)
 │
 ├── data/                     dữ liệu vào dùng cho thực nghiệm (sinh tự động)
 ├── results/                  bảng kết quả, nhật ký chạy, thông tin môi trường
@@ -273,7 +273,7 @@ Bộ kiểm thử gồm bốn bước:
    kháng, ngẫu nhiên đối chiếu, và mở rộng.
 2. **Kiểm thử đơn vị bản `ST_CHECK_OVERFLOW`** — chạy lại toàn bộ với `assert`
    và kiểm tra tràn 64-bit bật.
-3. **16 test cố định** trong `tests/cases`, so từng dòng với đáp án chuẩn.
+3. **19 test cố định** trong `tests/cases`, so từng dòng với đáp án chuẩn.
 4. **Stress test** đối chiếu với lời giải mảng thường.
 
 Nhật ký đầy đủ được ghi vào `results/test_log.txt`. Mã thoát `0` nghĩa là mọi

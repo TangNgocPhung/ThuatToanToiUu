@@ -1,6 +1,6 @@
 ﻿============================================================
  BO KIEM THU - Chuyen de 6: Segment Tree + Lazy Propagation
- Thoi diem chay: 2026-08-07 19:19:01
+ Thoi diem chay: 2026-08-07 19:49:16
  May: LAPTOP-62QM80TQ / Microsoft Windows NT 10.0.26200.0
 ============================================================
 
@@ -202,7 +202,10 @@ Tong ket: 71 dat, 0 hong
       [ OK ] 14_query_only.in
       [ OK ] 15_basic_query_example.in
       [ OK ] 16_boundary_n_large.in
-      Ket qua: 16 dat, 0 hong tren tong 16 test co dinh
+      [ OK ] 17_adversarial_full_n100000.in
+      [ OK ] 18_adversarial_point_n100000.in
+      [ OK ] 19_adversarial_alternating_n100000.in
+      Ket qua: 19 dat, 0 hong tren tong 19 test co dinh
 
 [4/4] Stress test: BO QUA (-SkipStress)
 
