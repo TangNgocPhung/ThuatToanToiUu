@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(g++ --version)",
+      "Bash(where g++)",
+      "Bash(wmic cpu *)",
+      "PowerShell(foreach \\($c in @\\('g++','clang++','cl','gcc','mingw32-make','cmake','python'\\)\\) { $p = Get-Command $c -ErrorAction SilentlyContinue; if \\($p\\) { \"$c -> $\\($p.Source\\)\" } else { \"$c -> NOT FOUND\" } })",
+      "PowerShell($paths = @\\(\"C:\\\\MinGW\",\"C:\\\\msys64\",\"C:\\\\mingw64\",\"C:\\\\TDM-GCC-64\",\"$env:LOCALAPPDATA\\\\Programs\",\"C:\\\\Program Files\\\\Microsoft Visual Studio\",\"C:\\\\Program Files \\(x86\\)\\\\Microsoft Visual Studio\",\"C:\\\\Program Files\\\\LLVM\"\\); foreach \\($p in $paths\\) { if \\(Test-Path $p\\) { \"EXISTS: $p\" } }; \"--- searching for g++.exe ---\"; Get-ChildItem -Path C:\\\\ -Filter \"g++.exe\" -Recurse -ErrorAction SilentlyContinue -Depth 5 | Select-Object -First 5 -ExpandProperty FullName)",
+      "PowerShell(\\(Get-CimInstance Win32_Processor\\).Name; \"Cores: \" + \\(Get-CimInstance Win32_Processor\\).NumberOfCores + \" / Logical: \" + \\(Get-CimInstance Win32_Processor\\).NumberOfLogicalProcessors; \"RAM GB: \" + [math]::Round\\(\\(Get-CimInstance Win32_ComputerSystem\\).TotalPhysicalMemory/1GB,1\\); \\(Get-CimInstance Win32_OperatingSystem\\).Caption)",
+      "PowerShell($root = \"C:\\\\Users\\\\Phung\\\\OneDrive - Hochiminh City University of Education\\\\Desktop\\\\ThuatToanToiUu\"; foreach \\($d in @\\(\"src\",\"tests\",\"tests\\\\cases\",\"data\",\"results\",\"report\",\"report\\\\figures\",\"slides\",\"_backup_original\",\"bin\"\\)\\) { New-Item -ItemType Directory -Force -Path \\(Join-Path $root $d\\) | Out-Null }; Copy-Item \\(Join-Path $root \"main.cpp\"\\) \\(Join-Path $root \"_backup_original\\\\main_original.cpp\"\\) -Force; Copy-Item \\(Join-Path $root \"generator.cpp\"\\) \\(Join-Path $root \"_backup_original\\\\generator_original.cpp\"\\) -Force; Copy-Item \\(Join-Path $root \"input.txt\"\\) \\(Join-Path $root \"_backup_original\\\\input_original.txt\"\\) -Force; Copy-Item \\(Join-Path $root \"output.txt\"\\) \\(Join-Path $root \"_backup_original\\\\output_original.txt\"\\) -Force; Get-ChildItem $root | Select-Object Mode,Name)"
+    ]
+  }
+}
