@@ -1,0 +1,13 @@
+# Sản phẩm biên dịch
+bin/
+*.exe
+*.o
+*.obj
+
+# Dữ liệu thực nghiệm sinh tự động (chạy lại bằng .\run_experiments.ps1)
+data/*.txt
+
+# Tệp tạm khi chạy
+stress_fail.in
+out.txt
+*.tmp

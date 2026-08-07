@@ -1,0 +1,39 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns='http://www.w3.org/2000/svg' width='760' height='460' viewBox='0 0 760 460' font-family='Segoe UI, Arial, sans-serif'>
+<rect width='760' height='460' fill='#ffffff'/>
+<text x='380' y='28' text-anchor='middle' font-size='17' font-weight='600' fill='#111'>Thoi gian trung binh moi thao tac theo kich thuoc N (tai hon hop)</text>
+<line x1='90' y1='390' x2='550' y2='390' stroke='#e8e8e8'/>
+<text x='80' y='394' text-anchor='end' font-size='11' fill='#555'>1e2</text>
+<line x1='90' y1='276.666666666667' x2='550' y2='276.666666666667' stroke='#e8e8e8'/>
+<text x='80' y='280.666666666667' text-anchor='end' font-size='11' fill='#555'>1e3</text>
+<line x1='90' y1='163.333333333333' x2='550' y2='163.333333333333' stroke='#e8e8e8'/>
+<text x='80' y='167.333333333333' text-anchor='end' font-size='11' fill='#555'>1e4</text>
+<line x1='90' y1='50' x2='550' y2='50' stroke='#e8e8e8'/>
+<text x='80' y='54' text-anchor='end' font-size='11' fill='#555'>1e5</text>
+<line x1='90' y1='50' x2='90' y2='390' stroke='#f2f2f2'/>
+<text x='90' y='410' text-anchor='middle' font-size='11' fill='#555'>1000</text>
+<line x1='243.333333333333' y1='50' x2='243.333333333333' y2='390' stroke='#f2f2f2'/>
+<text x='243.333333333333' y='410' text-anchor='middle' font-size='11' fill='#555'>10000</text>
+<line x1='396.666666666667' y1='50' x2='396.666666666667' y2='390' stroke='#f2f2f2'/>
+<text x='396.666666666667' y='410' text-anchor='middle' font-size='11' fill='#555'>100000</text>
+<line x1='550' y1='50' x2='550' y2='390' stroke='#f2f2f2'/>
+<text x='550' y='410' text-anchor='middle' font-size='11' fill='#555'>1000000</text>
+<line x1='90' y1='50' x2='90' y2='390' stroke='#333' stroke-width='1.5'/>
+<line x1='90' y1='390' x2='550' y2='390' stroke='#333' stroke-width='1.5'/>
+<text x='320' y='438' text-anchor='middle' font-size='13' fill='#333'>N (thang loga)</text>
+<text x='22' y='220' text-anchor='middle' font-size='13' fill='#333' transform='rotate(-90 22 220)'>ns moi thao tac (thang loga)</text>
+<polyline points='90,331.384464899003 243.333333333333,315.838169689468 396.666666666667,276.396698174287 550,253.070732724836' fill='none' stroke='#1f77b4' stroke-width='2.5'/>
+<circle cx='90' cy='331.384464899003' r='4.5' fill='#1f77b4'/>
+<circle cx='243.333333333333' cy='315.838169689468' r='4.5' fill='#1f77b4'/>
+<circle cx='396.666666666667' cy='276.396698174287' r='4.5' fill='#1f77b4'/>
+<circle cx='550' cy='253.070732724836' r='4.5' fill='#1f77b4'/>
+<polyline points='90,356.402809989942 243.333333333333,253.376429262324 396.666666666667,140.700628288655' fill='none' stroke='#d62728' stroke-width='2.5'/>
+<circle cx='90' cy='356.402809989942' r='4.5' fill='#d62728'/>
+<circle cx='243.333333333333' cy='253.376429262324' r='4.5' fill='#d62728'/>
+<circle cx='396.666666666667' cy='140.700628288655' r='4.5' fill='#d62728'/>
+<rect x='574' y='51' width='13' height='13' fill='#1f77b4' rx='2'/>
+<text x='593' y='62' font-size='12' fill='#222'>Segment Tree O(log N)</text>
+<rect x='574' y='73' width='13' height='13' fill='#d62728' rx='2'/>
+<text x='593' y='84' font-size='12' fill='#222'>Mang thuong O(N)</text>
+</svg>
+

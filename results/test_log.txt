@@ -1,6 +1,6 @@
 ﻿============================================================
  BO KIEM THU - Chuyen de 6: Segment Tree + Lazy Propagation
- Thoi diem chay: 2026-08-07 17:29:25
+ Thoi diem chay: 2026-08-07 18:00:25
  May: LAPTOP-62QM80TQ / Microsoft Windows NT 10.0.26200.0
 ============================================================
 
@@ -202,10 +202,10 @@ Tong ket: 71 dat, 0 hong
       [ OK ] 14_query_only.in
       Ket qua: 14 dat, 0 hong tren tong 14 test co dinh
 
-[4/4] Stress test ngau nhien doi chieu (3000 vong)
-Stress test: rounds=3000 maxn=200 ops=500 seed=1
-KET QUA: tat ca 3000 vong ngau nhien deu khop voi loi giai mang thuong.
-      KET QUA: tat ca 3000 vong ngau nhien deu khop voi loi giai mang thuong.
+[4/4] Stress test ngau nhien doi chieu (5000 vong)
+Stress test: rounds=5000 maxn=200 ops=500 seed=1
+KET QUA: tat ca 5000 vong ngau nhien deu khop voi loi giai mang thuong.
+      KET QUA: tat ca 5000 vong ngau nhien deu khop voi loi giai mang thuong.
 
 ============================================================
  KET QUA CHUNG: TAT CA CAC BUOC DEU DAT
