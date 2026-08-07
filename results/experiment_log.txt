@@ -1,0 +1,69 @@
+﻿[0/4] Thu thap thong tin moi truong chay...
+      -> results\environment.md
+[1/4] Sinh du lieu vao trong data\ ...
+      small_n1000_q1000.txt            N=1000     Q=1000     23 KB
+      medium_n50000_q50000.txt         N=50000    Q=50000    1350 KB
+      large_n1000000_q1000000.txt      N=1000000  Q=1000000  29158 KB
+      adv_full_n200000_q200000.txt     N=200000   Q=200000   4900 KB
+      adv_point_n200000_q200000.txt    N=200000   Q=200000   5659 KB
+      adv_prefix_n200000_q200000.txt   N=200000   Q=200000   4791 KB
+[2/4] Do thoi gian trong bo nho (bin\bench.exe)...
+engine   load     n         q         build_ms    ops_ms      ns/op       
+--------------------------------------------------------------------------
+segtree  mixed    1000      200000    0.102       65.794      329.0       
+naive    mixed    1000      200000    0.009       39.590      197.9       
+segtree  update   1000      200000    0.082       78.361      391.8       
+naive    update   1000      200000    0.010       49.009      245.0       
+segtree  query    1000      200000    0.066       43.729      218.6       
+naive    query    1000      200000    0.010       41.564      207.8       
+segtree  point    1000      200000    0.072       31.570      157.9       
+naive    point    1000      200000    0.023       1.837       9.2         
+segtree  full     1000      200000    0.057       1.805       9.0         
+naive    full     1000      200000    0.009       92.009      460.0       
+--------------------------------------------------------------------------
+segtree  mixed    10000     200000    0.132       90.231      451.2       
+naive    mixed    10000     200000    0.101       321.012     1605.1      
+segtree  update   10000     200000    0.114       118.076     590.4       
+naive    update   10000     200000    0.132       226.652     1133.3      
+segtree  query    10000     200000    0.117       60.479      302.4       
+naive    query    10000     200000    0.090       391.252     1956.3      
+segtree  point    10000     200000    0.117       41.364      206.8       
+naive    point    10000     200000    0.092       1.838       9.2         
+segtree  full     10000     200000    0.104       1.763       8.8         
+naive    full     10000     200000    0.090       935.629     4678.1      
+--------------------------------------------------------------------------
+segtree  mixed    100000    200000    4.106       201.107     1005.5      
+naive    mixed    100000    200000    0.088       3167.593    15838.0     
+segtree  update   100000    200000    3.997       201.943     1009.7      
+naive    update   100000    200000    0.075       2205.316    11026.6     
+segtree  query    100000    200000    2.703       106.269     531.3       
+naive    query    100000    200000    0.076       4217.033    21085.2     
+segtree  point    100000    200000    3.588       74.205      371.0       
+naive    point    100000    200000    0.297       2.095       10.5        
+segtree  full     100000    200000    3.067       1.752       8.8         
+naive    full     100000    200000    0.172       10675.003   53375.0     
+--------------------------------------------------------------------------
+segtree  mixed    1000000   200000    37.314      323.018     1615.1      
+segtree  update   1000000   200000    38.656      375.128     1875.6      
+segtree  query    1000000   200000    46.809      204.922     1024.6      
+segtree  point    1000000   200000    45.128      138.953     694.8       
+segtree  full     1000000   200000    50.737      1.834       9.2         
+--------------------------------------------------------------------------
+Da ghi CSV: results\benchmark.csv
+[3/4] Do thoi gian tron goi tren tep du lieu (bin\segtree.exe)...
+      small_n1000_q1000.txt            segtree  tong=     33.5 ms  build=     0.1 ms  thao-tac=      0.4 ms
+      small_n1000_q1000.txt            naive    tong=     28.2 ms  build=     0.0 ms  thao-tac=      0.3 ms
+      medium_n50000_q50000.txt         segtree  tong=     81.9 ms  build=     1.6 ms  thao-tac=     39.5 ms
+      medium_n50000_q50000.txt         naive    tong=    467.0 ms  build=     0.0 ms  thao-tac=    424.7 ms
+      large_n1000000_q1000000.txt      segtree  tong=  2,034.1 ms  build=    29.5 ms  thao-tac=  1,786.9 ms
+      adv_full_n200000_q200000.txt     segtree  tong=     81.5 ms  build=     6.2 ms  thao-tac=     14.1 ms
+      adv_point_n200000_q200000.txt    segtree  tong=    216.3 ms  build=     5.2 ms  thao-tac=    143.0 ms
+      adv_prefix_n200000_q200000.txt   segtree  tong=    211.4 ms  build=     5.7 ms  thao-tac=    137.6 ms
+[4/4] Tong hop results\results.md ...
+      -> results\results.md
+
+HOAN TAT THUC NGHIEM.
+  results\environment.md   thong tin moi truong
+  results\benchmark.csv    so lieu tho (trong bo nho)
+  results\end_to_end.csv   so lieu tho (tron goi)
+  results\results.md       bang ket qua cho bao cao

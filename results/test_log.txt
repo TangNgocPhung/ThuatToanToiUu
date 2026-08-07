@@ -1,0 +1,213 @@
+﻿============================================================
+ BO KIEM THU - Chuyen de 6: Segment Tree + Lazy Propagation
+ Thoi diem chay: 2026-08-07 17:29:25
+ May: LAPTOP-62QM80TQ / Microsoft Windows NT 10.0.26200.0
+============================================================
+
+[1/4] Kiem thu don vi (ban toi uu)
+Bo kiem thu chuyen de 6 - Segment Tree + Lazy Propagation
+
+=== CO BAN ===
+  [ OK ] tong toan mang = 23
+  [ OK ] tong a[1..3] = 2+8+9 = 19
+  [ OK ] tong a[2..3] = 8+9 = 17
+  [ OK ] tong mot phan tu a[0] = 1
+  [ OK ] tong mot phan tu a[4] = 3
+  [ OK ] sau khi cong 5 vao [1,3]: tong = 38
+  [ OK ] sau khi cong 5 vao [1,3]: a[1..3] = 34
+  [ OK ] sau khi cong 5 vao [1,3]: a[0..1] = 8
+  [ OK ] sau khi cong 5 vao [1,3]: a[2] = 13
+  [ OK ] trai phang cay khop mang mong doi
+  [ OK ] cap nhat chong lan cho ket qua dung
+  [ OK ] tong sau hai cap nhat = 29
+
+=== BIEN ===
+  [ OK ] N=1: truy van phan tu duy nhat
+  [ OK ] N=1: cap nhat phan tu duy nhat
+  [ OK ] N=1: size() = 1
+  [ OK ] N=0: cay rong khong sap chuong trinh
+  [ OK ] N=3 (khong la luy thua cua 2)
+  [ OK ] N=5 (khong la luy thua cua 2)
+  [ OK ] N=6 (khong la luy thua cua 2)
+  [ OK ] N=7 (khong la luy thua cua 2)
+  [ OK ] N=9 (khong la luy thua cua 2)
+  [ OK ] N=11 (khong la luy thua cua 2)
+  [ OK ] N=13 (khong la luy thua cua 2)
+  [ OK ] N=100 (khong la luy thua cua 2)
+  [ OK ] N=1000 (khong la luy thua cua 2)
+  [ OK ] N=4097 (khong la luy thua cua 2)
+  [ OK ] 100 lan cap nhat toan doan
+  [ OK ] gia tri mot phan tu sau 100 lan cap nhat toan doan
+  [ OK ] cap nhat tung diem
+  [ OK ] truy van mot diem sau cap nhat diem
+  [ OK ] tong cac gia tri am
+  [ OK ] cong them gia tri am vao toan doan
+  [ OK ] cong gia tri duong len doan am
+  [ OK ] cap nhat V=0 khong doi ket qua
+  [ OK ] tong lon 2.2e15 khong tran 64-bit
+  [ OK ] gia tri phan tu 1.1e10 (vuot 32-bit)
+  [ OK ] cong roi tru trieu tieu ve 0
+
+=== DOI KHANG ===
+  [ OK ] hoi quy: truy van tong tren nut trong = 17
+  [ OK ] hoi quy: truy van min tren cung doan = 8
+  [ OK ] hoi quy: truy van max tren cung doan = 9
+  [ OK ] hoi quy: tong va min khong duoc lan lon
+  [ OK ] cap nhat toan doan xen ke truy van tung diem (ep push_down)
+  [ OK ] cac doan long nhau thu hep dan + truy van tien to
+  [ OK ] cap nhat toan bo tien to roi toan bo hau to
+  [ OK ] cap nhat nua trai khong ro ri sang nua phai
+  [ OK ] tong nua trai dung
+  [ OK ] phan tu giao cua hai doan nhan ca hai cap nhat
+  [ OK ] phan tu chi thuoc doan thu nhat
+  [ OK ] phan tu chi thuoc doan thu hai
+  [ OK ] tong sau hai doan giao nhau
+
+=== NGAU NHIEN DOI CHIEU ===
+  [ OK ] 300 vong ngau nhien khop voi mang thuong
+  [ OK ] N=5000, gia tri toi 1e9, 3000 thao tac khop voi mang thuong
+
+=== MO RONG: GAN DOAN + MIN/MAX ===
+  [ OK ] tong ban dau
+  [ OK ] min ban dau
+  [ OK ] max ban dau
+  [ OK ] sau khi gan [1,3] = 4: tong
+  [ OK ] sau khi gan [1,3] = 4: min
+  [ OK ] sau khi gan [1,3] = 4: max
+  [ OK ] gan roi cong: tong [0,2]
+  [ OK ] gan roi cong: max
+  [ OK ] gan roi cong: min
+  [ OK ] gan xoa sach cong dung truoc (6 * 7 = 42)
+  [ OK ] gan xoa sach cong dung truoc: min = 7
+  [ OK ] 100 vong ngau nhien: gan + cong + sum/min/max khop mang thuong
+
+=== MO RONG: CAP NHAT AFFINE (mod p) ===
+  [ OK ] tong ban dau
+  [ OK ] sau x -> 2x+1 tren toan doan
+  [ OK ] sau x -> 2x+1 tren doan con [1,2]
+  [ OK ] affine(0,4) hoat dong nhu phep gan
+  [ OK ] hop thanh the: nhan roi cong = 23
+  [ OK ] hop thanh the: cong roi nhan = 26 (khong giao hoan)
+  [ OK ] 60 vong ngau nhien: affine mod 998244353 khop mang thuong
+
+---------------------------------------------
+Tong ket: 71 dat, 0 hong
+      Tong ket: 71 dat, 0 hong
+
+[2/4] Kiem thu don vi (ban co ST_CHECK_OVERFLOW + assert)
+Bo kiem thu chuyen de 6 - Segment Tree + Lazy Propagation
+(bien dich voi ST_CHECK_OVERFLOW: co kiem tra tran 64-bit)
+
+=== CO BAN ===
+  [ OK ] tong toan mang = 23
+  [ OK ] tong a[1..3] = 2+8+9 = 19
+  [ OK ] tong a[2..3] = 8+9 = 17
+  [ OK ] tong mot phan tu a[0] = 1
+  [ OK ] tong mot phan tu a[4] = 3
+  [ OK ] sau khi cong 5 vao [1,3]: tong = 38
+  [ OK ] sau khi cong 5 vao [1,3]: a[1..3] = 34
+  [ OK ] sau khi cong 5 vao [1,3]: a[0..1] = 8
+  [ OK ] sau khi cong 5 vao [1,3]: a[2] = 13
+  [ OK ] trai phang cay khop mang mong doi
+  [ OK ] cap nhat chong lan cho ket qua dung
+  [ OK ] tong sau hai cap nhat = 29
+
+=== BIEN ===
+  [ OK ] N=1: truy van phan tu duy nhat
+  [ OK ] N=1: cap nhat phan tu duy nhat
+  [ OK ] N=1: size() = 1
+  [ OK ] N=0: cay rong khong sap chuong trinh
+  [ OK ] N=3 (khong la luy thua cua 2)
+  [ OK ] N=5 (khong la luy thua cua 2)
+  [ OK ] N=6 (khong la luy thua cua 2)
+  [ OK ] N=7 (khong la luy thua cua 2)
+  [ OK ] N=9 (khong la luy thua cua 2)
+  [ OK ] N=11 (khong la luy thua cua 2)
+  [ OK ] N=13 (khong la luy thua cua 2)
+  [ OK ] N=100 (khong la luy thua cua 2)
+  [ OK ] N=1000 (khong la luy thua cua 2)
+  [ OK ] N=4097 (khong la luy thua cua 2)
+  [ OK ] 100 lan cap nhat toan doan
+  [ OK ] gia tri mot phan tu sau 100 lan cap nhat toan doan
+  [ OK ] cap nhat tung diem
+  [ OK ] truy van mot diem sau cap nhat diem
+  [ OK ] tong cac gia tri am
+  [ OK ] cong them gia tri am vao toan doan
+  [ OK ] cong gia tri duong len doan am
+  [ OK ] cap nhat V=0 khong doi ket qua
+  [ OK ] tong lon 2.2e15 khong tran 64-bit
+  [ OK ] gia tri phan tu 1.1e10 (vuot 32-bit)
+  [ OK ] cong roi tru trieu tieu ve 0
+
+=== DOI KHANG ===
+  [ OK ] hoi quy: truy van tong tren nut trong = 17
+  [ OK ] hoi quy: truy van min tren cung doan = 8
+  [ OK ] hoi quy: truy van max tren cung doan = 9
+  [ OK ] hoi quy: tong va min khong duoc lan lon
+  [ OK ] cap nhat toan doan xen ke truy van tung diem (ep push_down)
+  [ OK ] cac doan long nhau thu hep dan + truy van tien to
+  [ OK ] cap nhat toan bo tien to roi toan bo hau to
+  [ OK ] cap nhat nua trai khong ro ri sang nua phai
+  [ OK ] tong nua trai dung
+  [ OK ] phan tu giao cua hai doan nhan ca hai cap nhat
+  [ OK ] phan tu chi thuoc doan thu nhat
+  [ OK ] phan tu chi thuoc doan thu hai
+  [ OK ] tong sau hai doan giao nhau
+
+=== NGAU NHIEN DOI CHIEU ===
+  [ OK ] 300 vong ngau nhien khop voi mang thuong
+  [ OK ] N=5000, gia tri toi 1e9, 3000 thao tac khop voi mang thuong
+
+=== MO RONG: GAN DOAN + MIN/MAX ===
+  [ OK ] tong ban dau
+  [ OK ] min ban dau
+  [ OK ] max ban dau
+  [ OK ] sau khi gan [1,3] = 4: tong
+  [ OK ] sau khi gan [1,3] = 4: min
+  [ OK ] sau khi gan [1,3] = 4: max
+  [ OK ] gan roi cong: tong [0,2]
+  [ OK ] gan roi cong: max
+  [ OK ] gan roi cong: min
+  [ OK ] gan xoa sach cong dung truoc (6 * 7 = 42)
+  [ OK ] gan xoa sach cong dung truoc: min = 7
+  [ OK ] 100 vong ngau nhien: gan + cong + sum/min/max khop mang thuong
+
+=== MO RONG: CAP NHAT AFFINE (mod p) ===
+  [ OK ] tong ban dau
+  [ OK ] sau x -> 2x+1 tren toan doan
+  [ OK ] sau x -> 2x+1 tren doan con [1,2]
+  [ OK ] affine(0,4) hoat dong nhu phep gan
+  [ OK ] hop thanh the: nhan roi cong = 23
+  [ OK ] hop thanh the: cong roi nhan = 26 (khong giao hoan)
+  [ OK ] 60 vong ngau nhien: affine mod 998244353 khop mang thuong
+
+---------------------------------------------
+Tong ket: 71 dat, 0 hong
+      Tong ket: 71 dat, 0 hong
+
+[3/4] Test co dinh trong tests\cases
+      [ OK ] 01_basic_sample.in
+      [ OK ] 02_single_element.in
+      [ OK ] 03_full_range.in
+      [ OK ] 04_point_ops.in
+      [ OK ] 05_negative_values.in
+      [ OK ] 06_non_power_of_two.in
+      [ OK ] 07_zero_delta.in
+      [ OK ] 08_large_values_64bit.in
+      [ OK ] 09_random_overlapping.in
+      [ OK ] 10_adversarial_full.in
+      [ OK ] 11_adversarial_point.in
+      [ OK ] 12_adversarial_prefix.in
+      [ OK ] 13_small_ranges.in
+      [ OK ] 14_query_only.in
+      Ket qua: 14 dat, 0 hong tren tong 14 test co dinh
+
+[4/4] Stress test ngau nhien doi chieu (3000 vong)
+Stress test: rounds=3000 maxn=200 ops=500 seed=1
+KET QUA: tat ca 3000 vong ngau nhien deu khop voi loi giai mang thuong.
+      KET QUA: tat ca 3000 vong ngau nhien deu khop voi loi giai mang thuong.
+
+============================================================
+ KET QUA CHUNG: TAT CA CAC BUOC DEU DAT
+============================================================
+

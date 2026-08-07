@@ -12,10 +12,11 @@
 //      Mỗi truy vấn loại 2 in một dòng chứa một số nguyên 64-bit.
 //
 //  CÁCH DÙNG:
-//      segtree                              # đọc stdin, ghi stdout
-//      segtree in.txt out.txt               # đọc/ghi tệp
-//      segtree --engine=naive in.txt out.txt# chạy lời giải đối chiếu O(N)
-//      segtree --time in.txt out.txt        # in thời gian xử lý ra stderr
+//      segtree                               # đọc stdin, ghi stdout
+//      segtree in.txt out.txt                # đọc/ghi tệp
+//      segtree --engine=naive in.txt out.txt # chạy lời giải đối chiếu O(N)
+//      segtree --time in.txt out.txt         # in thời gian xử lý ra stderr
+//      segtree --stats=s.csv in.txt out.txt  # ghi số liệu đo ra tệp CSV
 //
 //  Không có đường dẫn cố định nào trong mã nguồn.
 // =============================================================================
@@ -96,6 +97,7 @@ void append_ll(std::string& out, long long x) {
 struct Options {
     std::string input_path;
     std::string output_path;
+    std::string stats_path;
     bool use_naive = false;
     bool show_time = false;
 };
@@ -105,9 +107,14 @@ struct Options {
         "Cach dung: " << prog << " [tuy_chon] [tep_vao] [tep_ra]\n"
         "  --engine=segtree|naive   Chon cai dat (mac dinh: segtree)\n"
         "  --time                   In thoi gian xu ly ra stderr\n"
+        "  --stats=<tep>            Ghi so lieu do (CSV) ra tep\n"
         "  -h, --help               Hien thi tro giup\n"
         "Khong truyen tep_vao/tep_ra thi doc stdin va ghi stdout.\n";
     std::exit(code);
+}
+
+bool starts_with(std::string_view s, std::string_view p) {
+    return s.size() >= p.size() && s.compare(0, p.size(), p) == 0;
 }
 
 Options parse_args(int argc, char** argv) {
@@ -119,6 +126,7 @@ Options parse_args(int argc, char** argv) {
         else if (a == "--time") o.show_time = true;
         else if (a == "--engine=naive") o.use_naive = true;
         else if (a == "--engine=segtree") o.use_naive = false;
+        else if (starts_with(a, "--stats=")) o.stats_path = std::string(a.substr(8));
         else if (!a.empty() && a[0] == '-') {
             std::cerr << "Tuy chon khong hop le: " << a << "\n";
             usage_and_exit(argv[0], 2);
@@ -130,11 +138,17 @@ Options parse_args(int argc, char** argv) {
     return o;
 }
 
+struct Timing { double build_ms = 0.0; double ops_ms = 0.0; };
+
 // Khuôn xử lý dùng chung cho cả hai cài đặt (segtree và naive).
+// Thời gian DỰNG CÂY và thời gian THỰC HIỆN THAO TÁC được đo tách bạch.
 template <class Engine>
-void run(FastScanner& sc, std::string& out, long long n, long long q,
-         const std::vector<long long>& a) {
+Timing run(FastScanner& sc, std::string& out, long long n, long long q,
+           const std::vector<long long>& a) {
+    auto t0 = std::chrono::steady_clock::now();
     Engine tree(a);
+    auto t1 = std::chrono::steady_clock::now();
+
     for (long long t = 0; t < q; ++t) {
         long long type = sc.must_read_ll("loai truy van");
         if (type == 1) {
@@ -162,6 +176,9 @@ void run(FastScanner& sc, std::string& out, long long n, long long q,
             std::exit(2);
         }
     }
+    auto t2 = std::chrono::steady_clock::now();
+    return {std::chrono::duration<double, std::milli>(t1 - t0).count(),
+            std::chrono::duration<double, std::milli>(t2 - t1).count()};
 }
 
 }  // namespace
@@ -194,10 +211,9 @@ int main(int argc, char** argv) {
     std::string out;
     out.reserve(static_cast<std::size_t>(q) * 8 + 16);
 
-    auto t0 = std::chrono::steady_clock::now();
-    if (opt.use_naive) run<st::NaiveArray>(sc, out, n, q, a);
-    else                run<st::SegmentTree>(sc, out, n, q, a);
-    auto t1 = std::chrono::steady_clock::now();
+    Timing timing;
+    if (opt.use_naive) timing = run<st::NaiveArray>(sc, out, n, q, a);
+    else               timing = run<st::SegmentTree>(sc, out, n, q, a);
 
     if (!opt.output_path.empty()) {
         std::ofstream fout(opt.output_path, std::ios::binary);
@@ -211,11 +227,27 @@ int main(int argc, char** argv) {
         std::cout.flush();
     }
 
+    const char* engine_name = opt.use_naive ? "naive" : "segtree";
+    double total_ms = timing.build_ms + timing.ops_ms;
+
     if (opt.show_time) {
-        double ms = std::chrono::duration<double, std::milli>(t1 - t0).count();
-        std::cerr << "engine=" << (opt.use_naive ? "naive" : "segtree")
-                  << " N=" << n << " Q=" << q
-                  << " time_ms=" << ms << "\n";
+        std::cerr << "engine=" << engine_name << " N=" << n << " Q=" << q
+                  << " build_ms=" << timing.build_ms
+                  << " ops_ms="   << timing.ops_ms
+                  << " time_ms="  << total_ms << "\n";
+    }
+
+    // Ghi số liệu ra tệp CSV: cách lấy số liệu ĐÁNG TIN CẬY nhất vì không phụ
+    // thuộc vào việc trình bao (shell) xử lý luồng lỗi chuẩn ra sao.
+    if (!opt.stats_path.empty()) {
+        std::ofstream fs(opt.stats_path, std::ios::binary);
+        if (!fs) {
+            std::cerr << "Khong ghi duoc tep so lieu: " << opt.stats_path << "\n";
+            return 2;
+        }
+        fs << "engine,n,q,build_ms,ops_ms,total_ms\n"
+           << engine_name << ',' << n << ',' << q << ','
+           << timing.build_ms << ',' << timing.ops_ms << ',' << total_ms << '\n';
     }
     return 0;
 }

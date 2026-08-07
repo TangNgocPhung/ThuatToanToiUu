@@ -24,6 +24,39 @@
 
 namespace st {
 
+namespace detail {
+
+// ---------------------------------------------------------------------------
+//  mul_mod - Nhân hai số rồi lấy dư, an toàn với tràn khi 0 <= a, b < m < 2^62.
+//
+//  Trên GCC/Clang dùng kiểu 128-bit (bọc __extension__ để giữ -Wpedantic sạch);
+//  trình biên dịch không có 128-bit thì lùi về thuật toán nhân-dịch O(log b),
+//  chậm hơn nhưng luôn đúng.
+// ---------------------------------------------------------------------------
+#if defined(__SIZEOF_INT128__)
+__extension__ typedef unsigned __int128 uwide;
+
+inline long long mul_mod(long long a, long long b, long long m) {
+    return static_cast<long long>(static_cast<uwide>(a) * static_cast<uwide>(b) %
+                                  static_cast<uwide>(m));
+}
+#else
+inline long long mul_mod(long long a, long long b, long long m) {
+    unsigned long long mm = static_cast<unsigned long long>(m);
+    unsigned long long x = static_cast<unsigned long long>(a) % mm;
+    unsigned long long y = static_cast<unsigned long long>(b) % mm;
+    unsigned long long r = 0;
+    while (y) {
+        if (y & 1ULL) { r += x; if (r >= mm) r -= mm; }
+        x <<= 1; if (x >= mm) x -= mm;
+        y >>= 1;
+    }
+    return static_cast<long long>(r);
+}
+#endif
+
+}  // namespace detail
+
 // =============================================================================
 //  1) SegmentTreeAssignAdd
 //     Thao tác : assign_range(l, r, x)  -> gán mọi phần tử trong [l,r] bằng x
@@ -180,8 +213,6 @@ private:
 // =============================================================================
 class SegmentTreeAffine {
 public:
-    using u64 = std::uint64_t;
-
     struct Tag {
         long long a = 1;
         long long b = 0;
@@ -229,19 +260,18 @@ private:
     std::vector<Tag> lazy_;
 
     long long norm(long long x) const { x %= mod_; return x < 0 ? x + mod_ : x; }
-    long long mul(long long x, long long y) const {
-        return static_cast<long long>(static_cast<__int128>(x) * y % mod_);
-    }
+    long long mul(long long x, long long y) const { return detail::mul_mod(x, y, mod_); }
     long long add(long long x, long long y) const {
         long long s = x + y; return s >= mod_ ? s - mod_ : s;
     }
 
     static Tag compose(const Tag& first, const Tag& second, long long m) {
-        // Áp 'first' trước, 'second' sau.
+        // Áp 'first' trước, 'second' sau:
+        //   x -> second.a * (first.a * x + first.b) + second.b
         Tag r;
-        r.a = static_cast<long long>(static_cast<__int128>(second.a) * first.a % m);
-        r.b = static_cast<long long>(
-            (static_cast<__int128>(second.a) * first.b + second.b) % m);
+        r.a = detail::mul_mod(second.a, first.a, m);
+        r.b = detail::mul_mod(second.a, first.b, m) + second.b;
+        if (r.b >= m) r.b -= m;
         return r;
     }
 

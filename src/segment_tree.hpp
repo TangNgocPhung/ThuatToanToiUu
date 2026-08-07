@@ -18,6 +18,22 @@
 
 namespace st {
 
+#ifdef ST_CHECK_OVERFLOW
+namespace detail {
+// Kiểu số rộng hơn 64-bit, CHỈ dùng cho khẳng định phát hiện tràn ở chế độ gỡ
+// lỗi. __int128 là phần mở rộng của GCC/Clang nên phải bọc bằng __extension__
+// để không vi phạm -Wpedantic; trình biên dịch nào không có thì lùi về
+// long double (đủ để phát hiện tràn, tuy kém chính xác hơn).
+#  if defined(__SIZEOF_INT128__)
+__extension__ typedef __int128 wide_int;
+#  else
+typedef long double wide_int;
+#  endif
+constexpr long long kI64Min = -9223372036854775807LL - 1;
+constexpr long long kI64Max =  9223372036854775807LL;
+}  // namespace detail
+#endif
+
 // -----------------------------------------------------------------------------
 //  Lớp SegmentTree: cây phân đoạn tổng đoạn + cập nhật đoạn (cộng) bằng lazy.
 //
@@ -137,15 +153,14 @@ private:
 #ifdef ST_CHECK_OVERFLOW
         // Kiểm tra tràn 64-bit ở chế độ gỡ lỗi (xem tests/unit_tests.cpp).
         {
-            using i128 = __int128;
-            i128 delta = static_cast<i128>(t) * static_cast<i128>(len);
-            i128 total = static_cast<i128>(tree_[v]) + delta;
-            assert(total >= static_cast<i128>(-9223372036854775807LL - 1) &&
-                   total <= static_cast<i128>(9223372036854775807LL) &&
+            using W = detail::wide_int;
+            W total = static_cast<W>(tree_[v]) + static_cast<W>(t) * static_cast<W>(len);
+            assert(total >= static_cast<W>(detail::kI64Min) &&
+                   total <= static_cast<W>(detail::kI64Max) &&
                    "TRAN 64-bit: tong doan vuot qua long long");
-            i128 tag = static_cast<i128>(lazy_[v]) + static_cast<i128>(t);
-            assert(tag >= static_cast<i128>(-9223372036854775807LL - 1) &&
-                   tag <= static_cast<i128>(9223372036854775807LL) &&
+            W tag = static_cast<W>(lazy_[v]) + static_cast<W>(t);
+            assert(tag >= static_cast<W>(detail::kI64Min) &&
+                   tag <= static_cast<W>(detail::kI64Max) &&
                    "TRAN 64-bit: the lazy vuot qua long long");
         }
 #endif
