@@ -4,7 +4,7 @@
 #  Gom bon buoc:
 #      1. Kiem thu don vi (co ban / bien / doi khang / ngau nhien / mo rong)
 #      2. Kiem thu don vi ban co kiem tra tran 64-bit (ST_CHECK_OVERFLOW)
-#      3. Chay 14 test co dinh trong tests\cases va so voi dap an chuan
+#      3. Chay 12 test co dinh trong tests\cases va so voi dap an chuan
 #      4. Stress test ngau nhien doi chieu voi loi giai mang thuong
 #
 #  CACH DUNG:

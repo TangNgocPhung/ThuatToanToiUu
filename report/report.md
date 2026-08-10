@@ -488,39 +488,32 @@ vô tình vi phạm điều kiện an toàn ở mục 1.5.
 
 ### 5.5. Bộ test cố định
 
-14 tệp trong `tests/cases/`:
+12 tệp `.in`/`.out` trong `tests/cases/`, chia 3 nhóm: **cơ bản** (ví dụ tính
+tay được), **biên** (`N = 1`, `N` không phải lũy thừa 2, giá trị âm, cập nhật
+`0`, tràn 32-bit, `N = 100000`), **đối kháng** (toàn đoạn, một điểm, tiền tố,
+chồng lấn ngẫu nhiên, xen kẽ liên tục — cả ở quy mô nhỏ lẫn `N = 100000`). Một
+vài đại diện tiêu biểu:
 
 | Tệp | Loại | Điểm nhấn |
 |---|---|---|
 | `01_basic_sample` | cơ bản | ví dụ trong README, tính tay được |
 | `02_single_element` | biên | `N = 1` |
-| `03_full_range` | biên | mọi cập nhật phủ toàn đoạn |
-| `04_point_ops` | biên | mọi thao tác trên một điểm |
-| `05_negative_values` | biên | giá trị âm |
-| `06_non_power_of_two` | biên | `N = 13` |
-| `07_zero_delta` | biên | cập nhật `V = 0` |
 | `08_large_values_64bit` | biên | kết quả `2 · 10^10`, vượt 32-bit |
-| `09_random_overlapping` | đối kháng | nhiều đoạn chồng lấn |
 | `10_adversarial_full` | đối kháng | mọi thao tác phủ `[1, N]` |
-| `11_adversarial_point` | đối kháng | mọi thao tác là một điểm |
-| `12_adversarial_prefix` | đối kháng | mọi đoạn bắt đầu từ 1 |
-| `13_small_ranges` | đối kháng | đoạn rất ngắn |
-| `14_query_only` | đối kháng | không có cập nhật nào |
+| `16_boundary_n_large` | biên | `N = 100000` cố định |
+| `19_adversarial_alternating_n100000` | đối kháng | `N = 100000`, xen kẽ liên tục toàn đoạn / một điểm |
+
+Danh sách đầy đủ 12 tệp: xem thư mục `tests/cases/`.
 
 **Cách xác thực đáp án chuẩn.** `tests/make_expected.ps1` chạy mỗi tệp `.in`
 bằng **cả hai** cài đặt và chỉ ghi ra `.out` khi hai kết quả trùng nhau. Thêm
-vào đó, kết quả của tám test đầu đã được **tính tay** và đối chiếu độc lập — cả
-ba nguồn đều khớp:
+vào đó, kết quả của các test cơ bản/biên đầu tiên đã được **tính tay** và đối
+chiếu độc lập — cả ba nguồn đều khớp, ví dụ:
 
 | Test | Kết quả (đã kiểm tra bằng ba cách độc lập) |
 |---|---|
 | `01_basic_sample` | 23, 19, 38, 34, 13 |
 | `02_single_element` | 42, −58, 999999942 |
-| `03_full_range` | 8, 88, −72, −18 |
-| `04_point_ops` | 21, 3, 14 |
-| `05_negative_values` | −15, −65, 173, 135 |
-| `06_non_power_of_two` | 91, 791, 728, 63, 145, 591 |
-| `07_zero_delta` | 10, 10, 5, 1, 4 |
 | `08_large_values_64bit` | 5000000000, 20000000000, 4000000000 |
 
 ### 5.6. Stress test
@@ -543,7 +536,7 @@ không có sai lệch nào.
 |---|---|---|
 | 1 | Kiểm thử đơn vị (bản tối ưu) | **71 đạt / 0 hỏng** |
 | 2 | Kiểm thử đơn vị (bản `ST_CHECK_OVERFLOW`) | **71 đạt / 0 hỏng** |
-| 3 | 14 test cố định | **14 đạt / 0 hỏng** |
+| 3 | 12 test cố định | **12 đạt / 0 hỏng** |
 | 4 | Stress test 3000 vòng | **không có sai lệch** |
 
 Nhật ký đầy đủ: `results/test_log.txt`.

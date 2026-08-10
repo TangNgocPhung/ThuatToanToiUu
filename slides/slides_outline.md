@@ -109,7 +109,7 @@ query:  return min(s1, s2);        // gộp bằng MIN  ← không nhất quán!
 |---|---|
 | Kiểm thử đơn vị (5 nhóm) | 71 đạt / 0 hỏng |
 | Bản có kiểm tra tràn 64-bit | 71 đạt / 0 hỏng |
-| 14 test cố định | 14 đạt / 0 hỏng |
+| 12 test cố định | 12 đạt / 0 hỏng |
 | Stress test 3000 vòng (~1,5 triệu thao tác) | không sai lệch |
 
 * Nhấn mạnh: đáp án chuẩn được xác thực bằng **hai cài đặt độc lập** cộng với
@@ -166,7 +166,7 @@ query:  return min(s1, s2);        // gộp bằng MIN  ← không nhất quán!
 |---|---|---|
 | 0–2 | Giới thiệu cấu trúc dự án, mở `src/segment_tree.hpp`, chỉ ba hàm `apply`/`push_down`/`pull` | — |
 | 2–4 | Biên dịch trực tiếp trên máy | `.\build.ps1` |
-| 4–8 | Chạy toàn bộ kiểm thử, chỉ ra 71 + 14 test và stress test | `.\run_tests.ps1` |
+| 4–8 | Chạy toàn bộ kiểm thử, chỉ ra 71 + 12 test và stress test | `.\run_tests.ps1` |
 | 8–10 | Chạy ví dụ nhỏ, đối chiếu với kết quả tính tay trên slide | `.\bin\segtree.exe tests\cases\01_basic_sample.in` |
 | 10–13 | Chạy dữ liệu `N = Q = 10^6`, cho thấy khoảng 2 giây; chạy lại bằng `--engine=naive` trên dữ liệu vừa để so | `.\bin\segtree.exe --time data\large_n1000000_q1000000.txt out.txt` |
 | 13–15 | Mở `results/results.md`, đi qua bốn bảng, kết luận | — |

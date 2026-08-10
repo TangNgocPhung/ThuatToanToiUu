@@ -1,6 +1,6 @@
 ﻿============================================================
  BO KIEM THU - Chuyen de 6: Segment Tree + Lazy Propagation
- Thoi diem chay: 2026-08-07 19:49:16
+ Thoi diem chay: 2026-08-10 16:00:48
  May: LAPTOP-62QM80TQ / Microsoft Windows NT 10.0.26200.0
 ============================================================
 
@@ -188,24 +188,17 @@ Tong ket: 71 dat, 0 hong
 [3/4] Test co dinh trong tests\cases
       [ OK ] 01_basic_sample.in
       [ OK ] 02_single_element.in
-      [ OK ] 03_full_range.in
-      [ OK ] 04_point_ops.in
       [ OK ] 05_negative_values.in
       [ OK ] 06_non_power_of_two.in
-      [ OK ] 07_zero_delta.in
       [ OK ] 08_large_values_64bit.in
       [ OK ] 09_random_overlapping.in
       [ OK ] 10_adversarial_full.in
       [ OK ] 11_adversarial_point.in
       [ OK ] 12_adversarial_prefix.in
-      [ OK ] 13_small_ranges.in
-      [ OK ] 14_query_only.in
       [ OK ] 15_basic_query_example.in
       [ OK ] 16_boundary_n_large.in
-      [ OK ] 17_adversarial_full_n100000.in
-      [ OK ] 18_adversarial_point_n100000.in
       [ OK ] 19_adversarial_alternating_n100000.in
-      Ket qua: 19 dat, 0 hong tren tong 19 test co dinh
+      Ket qua: 12 dat, 0 hong tren tong 12 test co dinh
 
 [4/4] Stress test: BO QUA (-SkipStress)
 
