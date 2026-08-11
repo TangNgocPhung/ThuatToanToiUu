@@ -42,10 +42,13 @@ trình nếu bị vi phạm (xem mục 6).
 ```
 .
 ├── README.md                 tệp này
-├── build.ps1                 biên dịch toàn bộ (Windows / PowerShell)
 ├── Makefile                  biên dịch toàn bộ (Linux / macOS / MSYS2)
-├── run_tests.ps1             chạy toàn bộ bộ kiểm thử
-├── run_experiments.ps1       chạy toàn bộ thực nghiệm đo thời gian
+│
+├── scripts/                  script điều khiển (Windows / PowerShell)
+│   ├── build.ps1              biên dịch toàn bộ
+│   ├── run_tests.ps1          chạy toàn bộ bộ kiểm thử
+│   ├── run_experiments.ps1    chạy toàn bộ thực nghiệm đo thời gian
+│   └── make_figures.ps1       sinh hình minh họa (SVG) từ số liệu benchmark
 │
 ├── src/                      mã nguồn chính
 │   ├── segment_tree.hpp      LỚP CHÍNH: cập nhật đoạn (cộng) + truy vấn tổng
@@ -85,7 +88,7 @@ Mã nguồn không dùng thư viện ngoài nào. Hai tệp `segment_tree.hpp` v
 ### Windows (PowerShell)
 
 ```powershell
-.\build.ps1
+.\scripts\build.ps1
 ```
 
 Script tự dò tìm `g++` trong `PATH`, sau đó thử các vị trí cài đặt thông dụng
@@ -93,13 +96,13 @@ Script tự dò tìm `g++` trong `PATH`, sau đó thử các vị trí cài đ�
 trình biên dịch nằm ở chỗ khác:
 
 ```powershell
-.\build.ps1 -Compiler "D:\tools\mingw64\bin\g++.exe"
+.\scripts\build.ps1 -Compiler "D:\tools\mingw64\bin\g++.exe"
 ```
 
 Bản gỡ lỗi (bật `assert` và kiểm tra tràn 64-bit):
 
 ```powershell
-.\build.ps1 -Debug
+.\scripts\build.ps1 -Debug
 ```
 
 ### Linux / macOS / MSYS2 shell
@@ -262,9 +265,9 @@ thoát với mã `1`.
 ## 7. Chạy kiểm thử
 
 ```powershell
-.\run_tests.ps1                       # bộ đầy đủ
-.\run_tests.ps1 -StressRounds 20000   # stress test lâu hơn
-.\run_tests.ps1 -SkipStress           # bỏ qua stress test
+.\scripts\run_tests.ps1                       # bộ đầy đủ
+.\scripts\run_tests.ps1 -StressRounds 20000   # stress test lâu hơn
+.\scripts\run_tests.ps1 -SkipStress           # bỏ qua stress test
 ```
 
 Bộ kiểm thử gồm bốn bước:
@@ -290,8 +293,8 @@ có kết quả nhỏ, đã được **tính tay** và đối chiếu độc l�
 ## 8. Chạy thực nghiệm
 
 ```powershell
-.\run_experiments.ps1           # bộ đầy đủ (vài phút)
-.\run_experiments.ps1 -Quick    # bản rút gọn
+.\scripts\run_experiments.ps1           # bộ đầy đủ (vài phút)
+.\scripts\run_experiments.ps1 -Quick    # bản rút gọn
 ```
 
 Script sinh dữ liệu vào `data/`, đo thời gian, rồi ghi ra:

@@ -42,7 +42,9 @@
       "Bash(python C:/Users/Phung/AppData/Roaming/Claude/local-agent-mode-sessions/skills-plugin/de9d8208-5974-4b32-be45-884f5fc06fce/94e29cf3-091e-41ea-8963-932a6c455978/skills/docx/scripts/office/soffice.py --headless --convert-to pdf --outdir C:/Users/Phung/AppData/Local/Temp/claude/C--Users-Phung-OneDrive---Hochiminh-City-University-of-Education-Desktop-ThuatToanToiUu/1ce40595-d6da-40b8-ae7a-3e5ce33f2b80/scratchpad C:/Users/Phung/AppData/Local/Temp/claude/C--Users-Phung-OneDrive---Hochiminh-City-University-of-Education-Desktop-ThuatToanToiUu/1ce40595-d6da-40b8-ae7a-3e5ce33f2b80/scratchpad/ThayHam_FINAL.docx)",
       "Bash(SCRATCH=\"C:/Users/Phung/AppData/Local/Temp/claude/C--Users-Phung-OneDrive---Hochiminh-City-University-of-Education-Desktop-ThuatToanToiUu/1ce40595-d6da-40b8-ae7a-3e5ce33f2b80/scratchpad\" *)",
       "Bash(export PYTHONIOENCODING=utf-8)",
-      "Bash(python3 \"C:/Users/Phung/AppData/Local/Temp/claude/C--Users-Phung-OneDrive---Hochiminh-City-University-of-Education-Desktop-ThuatToanToiUu/1ce40595-d6da-40b8-ae7a-3e5ce33f2b80/scratchpad/rebuild_report.py\")"
+      "Bash(python3 \"C:/Users/Phung/AppData/Local/Temp/claude/C--Users-Phung-OneDrive---Hochiminh-City-University-of-Education-Desktop-ThuatToanToiUu/1ce40595-d6da-40b8-ae7a-3e5ce33f2b80/scratchpad/rebuild_report.py\")",
+      "Bash(powershell.exe -NoProfile -ExecutionPolicy Bypass -Command \".\\\\scripts\\\\build.ps1\")",
+      "Bash(powershell.exe -NoProfile -ExecutionPolicy Bypass -Command \".\\\\scripts\\\\run_tests.ps1 -SkipStress\")"
     ]
   }
 }

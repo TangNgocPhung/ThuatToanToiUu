@@ -383,7 +383,7 @@ chiếu ta chắc chắn hai bên nhận **cùng một chuỗi thao tác**.
 
 ### 5.1. Chiến lược tổng thể
 
-Bốn tầng bảo vệ, chạy bằng một lệnh `.\run_tests.ps1`:
+Bốn tầng bảo vệ, chạy bằng một lệnh `.\scripts\run_tests.ps1`:
 
 | Tầng | Công cụ | Phát hiện được gì |
 |---|---|---|
@@ -791,10 +791,10 @@ Gán đoạn là trường hợp riêng `affine(0, x)`; cộng đoạn là `affi
 Xem `README.md` ở thư mục gốc. Tóm tắt:
 
 ```powershell
-.\build.ps1              # biên dịch
-.\run_tests.ps1          # chạy toàn bộ kiểm thử
-.\run_experiments.ps1    # chạy toàn bộ thực nghiệm
-.\make_figures.ps1       # sinh lại hình minh họa từ số liệu
+.\scripts\build.ps1              # biên dịch
+.\scripts\run_tests.ps1          # chạy toàn bộ kiểm thử
+.\scripts\run_experiments.ps1    # chạy toàn bộ thực nghiệm
+.\scripts\make_figures.ps1       # sinh lại hình minh họa từ số liệu
 ```
 
 ## Phụ lục B. Mã nguồn

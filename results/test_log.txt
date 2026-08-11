@@ -1,191 +1,191 @@
+﻿============================================================
+ BO KIEM THU - Chuyen de 6: Segment Tree + Lazy Propagation
+ Thoi diem chay: 2026-08-11 08:58:39
+ May: LAPTOP-62QM80TQ / Microsoft Windows NT 10.0.26200.0
 ============================================================
- BỘ KIỂM THỬ - Chuyên đề 6: Segment Tree + Lazy Propagation
- Thời điểm chạy: 2026-08-10 16:00:48
- Máy: LAPTOP-62QM80TQ / Microsoft Windows NT 10.0.26200.0
-============================================================
 
-[1/4] Kiểm thử đơn vị (bản tối ưu)
-Bộ kiểm thử chuyên đề 6 - Segment Tree + Lazy Propagation
+[1/4] Kiem thu don vi (ban toi uu)
+Bo kiem thu chuyen de 6 - Segment Tree + Lazy Propagation
 
-=== CƠ BẢN ===
-  [ OK ] tổng toàn mảng = 23
-  [ OK ] tổng a[1..3] = 2+8+9 = 19
-  [ OK ] tổng a[2..3] = 8+9 = 17
-  [ OK ] tổng một phần tử a[0] = 1
-  [ OK ] tổng một phần tử a[4] = 3
-  [ OK ] sau khi cộng 5 vào [1,3]: tổng = 38
-  [ OK ] sau khi cộng 5 vào [1,3]: a[1..3] = 34
-  [ OK ] sau khi cộng 5 vào [1,3]: a[0..1] = 8
-  [ OK ] sau khi cộng 5 vào [1,3]: a[2] = 13
-  [ OK ] trải phẳng cây khớp mảng mong đợi
-  [ OK ] cập nhật chồng lấn cho kết quả đúng
-  [ OK ] tổng sau hai cập nhật = 29
+=== CO BAN ===
+  [ OK ] tong toan mang = 23
+  [ OK ] tong a[1..3] = 2+8+9 = 19
+  [ OK ] tong a[2..3] = 8+9 = 17
+  [ OK ] tong mot phan tu a[0] = 1
+  [ OK ] tong mot phan tu a[4] = 3
+  [ OK ] sau khi cong 5 vao [1,3]: tong = 38
+  [ OK ] sau khi cong 5 vao [1,3]: a[1..3] = 34
+  [ OK ] sau khi cong 5 vao [1,3]: a[0..1] = 8
+  [ OK ] sau khi cong 5 vao [1,3]: a[2] = 13
+  [ OK ] trai phang cay khop mang mong doi
+  [ OK ] cap nhat chong lan cho ket qua dung
+  [ OK ] tong sau hai cap nhat = 29
 
-=== BIÊN ===
-  [ OK ] N=1: truy vấn phần tử duy nhất
-  [ OK ] N=1: cập nhật phần tử duy nhất
+=== BIEN ===
+  [ OK ] N=1: truy van phan tu duy nhat
+  [ OK ] N=1: cap nhat phan tu duy nhat
   [ OK ] N=1: size() = 1
-  [ OK ] N=0: cây rỗng không sập chương trình
-  [ OK ] N=3 (không là lũy thừa của 2)
-  [ OK ] N=5 (không là lũy thừa của 2)
-  [ OK ] N=6 (không là lũy thừa của 2)
-  [ OK ] N=7 (không là lũy thừa của 2)
-  [ OK ] N=9 (không là lũy thừa của 2)
-  [ OK ] N=11 (không là lũy thừa của 2)
-  [ OK ] N=13 (không là lũy thừa của 2)
-  [ OK ] N=100 (không là lũy thừa của 2)
-  [ OK ] N=1000 (không là lũy thừa của 2)
-  [ OK ] N=4097 (không là lũy thừa của 2)
-  [ OK ] 100 lần cập nhật toàn đoạn
-  [ OK ] giá trị một phần tử sau 100 lần cập nhật toàn đoạn
-  [ OK ] cập nhật từng điểm
-  [ OK ] truy vấn một điểm sau cập nhật điểm
-  [ OK ] tổng các giá trị âm
-  [ OK ] cộng thêm giá trị âm vào toàn đoạn
-  [ OK ] cộng giá trị dương lên đoạn âm
-  [ OK ] cập nhật V=0 không đổi kết quả
-  [ OK ] tổng lớn 2.2e15 không tràn 64-bit
-  [ OK ] giá trị phần tử 1.1e10 (vượt 32-bit)
-  [ OK ] cộng rồi trừ triệt tiêu về 0
+  [ OK ] N=0: cay rong khong sap chuong trinh
+  [ OK ] N=3 (khong la luy thua cua 2)
+  [ OK ] N=5 (khong la luy thua cua 2)
+  [ OK ] N=6 (khong la luy thua cua 2)
+  [ OK ] N=7 (khong la luy thua cua 2)
+  [ OK ] N=9 (khong la luy thua cua 2)
+  [ OK ] N=11 (khong la luy thua cua 2)
+  [ OK ] N=13 (khong la luy thua cua 2)
+  [ OK ] N=100 (khong la luy thua cua 2)
+  [ OK ] N=1000 (khong la luy thua cua 2)
+  [ OK ] N=4097 (khong la luy thua cua 2)
+  [ OK ] 100 lan cap nhat toan doan
+  [ OK ] gia tri mot phan tu sau 100 lan cap nhat toan doan
+  [ OK ] cap nhat tung diem
+  [ OK ] truy van mot diem sau cap nhat diem
+  [ OK ] tong cac gia tri am
+  [ OK ] cong them gia tri am vao toan doan
+  [ OK ] cong gia tri duong len doan am
+  [ OK ] cap nhat V=0 khong doi ket qua
+  [ OK ] tong lon 2.2e15 khong tran 64-bit
+  [ OK ] gia tri phan tu 1.1e10 (vuot 32-bit)
+  [ OK ] cong roi tru trieu tieu ve 0
 
-=== ĐỐI KHÁNG ===
-  [ OK ] hồi quy: truy vấn tổng trên nút trong = 17
-  [ OK ] hồi quy: truy vấn min trên cùng đoạn = 8
-  [ OK ] hồi quy: truy vấn max trên cùng đoạn = 9
-  [ OK ] hồi quy: tổng và min không được lẫn lộn
-  [ OK ] cập nhật toàn đoạn xen kẽ truy vấn từng điểm (ép push_down)
-  [ OK ] các đoạn lồng nhau thu hẹp dần + truy vấn tiền tố
-  [ OK ] cập nhật toàn bộ tiền tố rồi toàn bộ hậu tố
-  [ OK ] cập nhật nửa trái không rò rỉ sang nửa phải
-  [ OK ] tổng nửa trái đúng
-  [ OK ] phần tử giao của hai đoạn nhận cả hai cập nhật
-  [ OK ] phần tử chỉ thuộc đoạn thứ nhất
-  [ OK ] phần tử chỉ thuộc đoạn thứ hai
-  [ OK ] tổng sau hai đoạn giao nhau
+=== DOI KHANG ===
+  [ OK ] hoi quy: truy van tong tren nut trong = 17
+  [ OK ] hoi quy: truy van min tren cung doan = 8
+  [ OK ] hoi quy: truy van max tren cung doan = 9
+  [ OK ] hoi quy: tong va min khong duoc lan lon
+  [ OK ] cap nhat toan doan xen ke truy van tung diem (ep push_down)
+  [ OK ] cac doan long nhau thu hep dan + truy van tien to
+  [ OK ] cap nhat toan bo tien to roi toan bo hau to
+  [ OK ] cap nhat nua trai khong ro ri sang nua phai
+  [ OK ] tong nua trai dung
+  [ OK ] phan tu giao cua hai doan nhan ca hai cap nhat
+  [ OK ] phan tu chi thuoc doan thu nhat
+  [ OK ] phan tu chi thuoc doan thu hai
+  [ OK ] tong sau hai doan giao nhau
 
-=== NGẪU NHIÊN ĐỐI CHIẾU ===
-  [ OK ] 300 vòng ngẫu nhiên khớp với mảng thường
-  [ OK ] N=5000, giá trị tới 1e9, 3000 thao tác khớp với mảng thường
+=== NGAU NHIEN DOI CHIEU ===
+  [ OK ] 300 vong ngau nhien khop voi mang thuong
+  [ OK ] N=5000, gia tri toi 1e9, 3000 thao tac khop voi mang thuong
 
-=== MỞ RỘNG: GÁN ĐOẠN + MIN/MAX ===
-  [ OK ] tổng ban đầu
-  [ OK ] min ban đầu
-  [ OK ] max ban đầu
-  [ OK ] sau khi gán [1,3] = 4: tổng
-  [ OK ] sau khi gán [1,3] = 4: min
-  [ OK ] sau khi gán [1,3] = 4: max
-  [ OK ] gán rồi cộng: tổng [0,2]
-  [ OK ] gán rồi cộng: max
-  [ OK ] gán rồi cộng: min
-  [ OK ] gán xóa sạch cộng dồn trước (6 * 7 = 42)
-  [ OK ] gán xóa sạch cộng dồn trước: min = 7
-  [ OK ] 100 vòng ngẫu nhiên: gán + cộng + sum/min/max khớp mảng thường
+=== MO RONG: GAN DOAN + MIN/MAX ===
+  [ OK ] tong ban dau
+  [ OK ] min ban dau
+  [ OK ] max ban dau
+  [ OK ] sau khi gan [1,3] = 4: tong
+  [ OK ] sau khi gan [1,3] = 4: min
+  [ OK ] sau khi gan [1,3] = 4: max
+  [ OK ] gan roi cong: tong [0,2]
+  [ OK ] gan roi cong: max
+  [ OK ] gan roi cong: min
+  [ OK ] gan xoa sach cong dung truoc (6 * 7 = 42)
+  [ OK ] gan xoa sach cong dung truoc: min = 7
+  [ OK ] 100 vong ngau nhien: gan + cong + sum/min/max khop mang thuong
 
-=== MỞ RỘNG: CẬP NHẬT AFFINE (mod p) ===
-  [ OK ] tổng ban đầu
-  [ OK ] sau x -> 2x+1 trên toàn đoạn
-  [ OK ] sau x -> 2x+1 trên đoạn con [1,2]
-  [ OK ] affine(0,4) hoạt động như phép gán
-  [ OK ] hợp thành thể: nhân rồi cộng = 23
-  [ OK ] hợp thành thể: cộng rồi nhân = 26 (không giao hoán)
-  [ OK ] 60 vòng ngẫu nhiên: affine mod 998244353 khớp mảng thường
+=== MO RONG: CAP NHAT AFFINE (mod p) ===
+  [ OK ] tong ban dau
+  [ OK ] sau x -> 2x+1 tren toan doan
+  [ OK ] sau x -> 2x+1 tren doan con [1,2]
+  [ OK ] affine(0,4) hoat dong nhu phep gan
+  [ OK ] hop thanh the: nhan roi cong = 23
+  [ OK ] hop thanh the: cong roi nhan = 26 (khong giao hoan)
+  [ OK ] 60 vong ngau nhien: affine mod 998244353 khop mang thuong
 
 ---------------------------------------------
-Tổng kết: 71 đạt, 0 hỏng
-      Tổng kết: 71 đạt, 0 hỏng
+Tong ket: 71 dat, 0 hong
+      Tong ket: 71 dat, 0 hong
 
-[2/4] Kiểm thử đơn vị (bản có ST_CHECK_OVERFLOW + assert)
-Bộ kiểm thử chuyên đề 6 - Segment Tree + Lazy Propagation
-(biên dịch với ST_CHECK_OVERFLOW: có kiểm tra tràn 64-bit)
+[2/4] Kiem thu don vi (ban co ST_CHECK_OVERFLOW + assert)
+Bo kiem thu chuyen de 6 - Segment Tree + Lazy Propagation
+(bien dich voi ST_CHECK_OVERFLOW: co kiem tra tran 64-bit)
 
-=== CƠ BẢN ===
-  [ OK ] tổng toàn mảng = 23
-  [ OK ] tổng a[1..3] = 2+8+9 = 19
-  [ OK ] tổng a[2..3] = 8+9 = 17
-  [ OK ] tổng một phần tử a[0] = 1
-  [ OK ] tổng một phần tử a[4] = 3
-  [ OK ] sau khi cộng 5 vào [1,3]: tổng = 38
-  [ OK ] sau khi cộng 5 vào [1,3]: a[1..3] = 34
-  [ OK ] sau khi cộng 5 vào [1,3]: a[0..1] = 8
-  [ OK ] sau khi cộng 5 vào [1,3]: a[2] = 13
-  [ OK ] trải phẳng cây khớp mảng mong đợi
-  [ OK ] cập nhật chồng lấn cho kết quả đúng
-  [ OK ] tổng sau hai cập nhật = 29
+=== CO BAN ===
+  [ OK ] tong toan mang = 23
+  [ OK ] tong a[1..3] = 2+8+9 = 19
+  [ OK ] tong a[2..3] = 8+9 = 17
+  [ OK ] tong mot phan tu a[0] = 1
+  [ OK ] tong mot phan tu a[4] = 3
+  [ OK ] sau khi cong 5 vao [1,3]: tong = 38
+  [ OK ] sau khi cong 5 vao [1,3]: a[1..3] = 34
+  [ OK ] sau khi cong 5 vao [1,3]: a[0..1] = 8
+  [ OK ] sau khi cong 5 vao [1,3]: a[2] = 13
+  [ OK ] trai phang cay khop mang mong doi
+  [ OK ] cap nhat chong lan cho ket qua dung
+  [ OK ] tong sau hai cap nhat = 29
 
-=== BIÊN ===
-  [ OK ] N=1: truy vấn phần tử duy nhất
-  [ OK ] N=1: cập nhật phần tử duy nhất
+=== BIEN ===
+  [ OK ] N=1: truy van phan tu duy nhat
+  [ OK ] N=1: cap nhat phan tu duy nhat
   [ OK ] N=1: size() = 1
-  [ OK ] N=0: cây rỗng không sập chương trình
-  [ OK ] N=3 (không là lũy thừa của 2)
-  [ OK ] N=5 (không là lũy thừa của 2)
-  [ OK ] N=6 (không là lũy thừa của 2)
-  [ OK ] N=7 (không là lũy thừa của 2)
-  [ OK ] N=9 (không là lũy thừa của 2)
-  [ OK ] N=11 (không là lũy thừa của 2)
-  [ OK ] N=13 (không là lũy thừa của 2)
-  [ OK ] N=100 (không là lũy thừa của 2)
-  [ OK ] N=1000 (không là lũy thừa của 2)
-  [ OK ] N=4097 (không là lũy thừa của 2)
-  [ OK ] 100 lần cập nhật toàn đoạn
-  [ OK ] giá trị một phần tử sau 100 lần cập nhật toàn đoạn
-  [ OK ] cập nhật từng điểm
-  [ OK ] truy vấn một điểm sau cập nhật điểm
-  [ OK ] tổng các giá trị âm
-  [ OK ] cộng thêm giá trị âm vào toàn đoạn
-  [ OK ] cộng giá trị dương lên đoạn âm
-  [ OK ] cập nhật V=0 không đổi kết quả
-  [ OK ] tổng lớn 2.2e15 không tràn 64-bit
-  [ OK ] giá trị phần tử 1.1e10 (vượt 32-bit)
-  [ OK ] cộng rồi trừ triệt tiêu về 0
+  [ OK ] N=0: cay rong khong sap chuong trinh
+  [ OK ] N=3 (khong la luy thua cua 2)
+  [ OK ] N=5 (khong la luy thua cua 2)
+  [ OK ] N=6 (khong la luy thua cua 2)
+  [ OK ] N=7 (khong la luy thua cua 2)
+  [ OK ] N=9 (khong la luy thua cua 2)
+  [ OK ] N=11 (khong la luy thua cua 2)
+  [ OK ] N=13 (khong la luy thua cua 2)
+  [ OK ] N=100 (khong la luy thua cua 2)
+  [ OK ] N=1000 (khong la luy thua cua 2)
+  [ OK ] N=4097 (khong la luy thua cua 2)
+  [ OK ] 100 lan cap nhat toan doan
+  [ OK ] gia tri mot phan tu sau 100 lan cap nhat toan doan
+  [ OK ] cap nhat tung diem
+  [ OK ] truy van mot diem sau cap nhat diem
+  [ OK ] tong cac gia tri am
+  [ OK ] cong them gia tri am vao toan doan
+  [ OK ] cong gia tri duong len doan am
+  [ OK ] cap nhat V=0 khong doi ket qua
+  [ OK ] tong lon 2.2e15 khong tran 64-bit
+  [ OK ] gia tri phan tu 1.1e10 (vuot 32-bit)
+  [ OK ] cong roi tru trieu tieu ve 0
 
-=== ĐỐI KHÁNG ===
-  [ OK ] hồi quy: truy vấn tổng trên nút trong = 17
-  [ OK ] hồi quy: truy vấn min trên cùng đoạn = 8
-  [ OK ] hồi quy: truy vấn max trên cùng đoạn = 9
-  [ OK ] hồi quy: tổng và min không được lẫn lộn
-  [ OK ] cập nhật toàn đoạn xen kẽ truy vấn từng điểm (ép push_down)
-  [ OK ] các đoạn lồng nhau thu hẹp dần + truy vấn tiền tố
-  [ OK ] cập nhật toàn bộ tiền tố rồi toàn bộ hậu tố
-  [ OK ] cập nhật nửa trái không rò rỉ sang nửa phải
-  [ OK ] tổng nửa trái đúng
-  [ OK ] phần tử giao của hai đoạn nhận cả hai cập nhật
-  [ OK ] phần tử chỉ thuộc đoạn thứ nhất
-  [ OK ] phần tử chỉ thuộc đoạn thứ hai
-  [ OK ] tổng sau hai đoạn giao nhau
+=== DOI KHANG ===
+  [ OK ] hoi quy: truy van tong tren nut trong = 17
+  [ OK ] hoi quy: truy van min tren cung doan = 8
+  [ OK ] hoi quy: truy van max tren cung doan = 9
+  [ OK ] hoi quy: tong va min khong duoc lan lon
+  [ OK ] cap nhat toan doan xen ke truy van tung diem (ep push_down)
+  [ OK ] cac doan long nhau thu hep dan + truy van tien to
+  [ OK ] cap nhat toan bo tien to roi toan bo hau to
+  [ OK ] cap nhat nua trai khong ro ri sang nua phai
+  [ OK ] tong nua trai dung
+  [ OK ] phan tu giao cua hai doan nhan ca hai cap nhat
+  [ OK ] phan tu chi thuoc doan thu nhat
+  [ OK ] phan tu chi thuoc doan thu hai
+  [ OK ] tong sau hai doan giao nhau
 
-=== NGẪU NHIÊN ĐỐI CHIẾU ===
-  [ OK ] 300 vòng ngẫu nhiên khớp với mảng thường
-  [ OK ] N=5000, giá trị tới 1e9, 3000 thao tác khớp với mảng thường
+=== NGAU NHIEN DOI CHIEU ===
+  [ OK ] 300 vong ngau nhien khop voi mang thuong
+  [ OK ] N=5000, gia tri toi 1e9, 3000 thao tac khop voi mang thuong
 
-=== MỞ RỘNG: GÁN ĐOẠN + MIN/MAX ===
-  [ OK ] tổng ban đầu
-  [ OK ] min ban đầu
-  [ OK ] max ban đầu
-  [ OK ] sau khi gán [1,3] = 4: tổng
-  [ OK ] sau khi gán [1,3] = 4: min
-  [ OK ] sau khi gán [1,3] = 4: max
-  [ OK ] gán rồi cộng: tổng [0,2]
-  [ OK ] gán rồi cộng: max
-  [ OK ] gán rồi cộng: min
-  [ OK ] gán xóa sạch cộng dồn trước (6 * 7 = 42)
-  [ OK ] gán xóa sạch cộng dồn trước: min = 7
-  [ OK ] 100 vòng ngẫu nhiên: gán + cộng + sum/min/max khớp mảng thường
+=== MO RONG: GAN DOAN + MIN/MAX ===
+  [ OK ] tong ban dau
+  [ OK ] min ban dau
+  [ OK ] max ban dau
+  [ OK ] sau khi gan [1,3] = 4: tong
+  [ OK ] sau khi gan [1,3] = 4: min
+  [ OK ] sau khi gan [1,3] = 4: max
+  [ OK ] gan roi cong: tong [0,2]
+  [ OK ] gan roi cong: max
+  [ OK ] gan roi cong: min
+  [ OK ] gan xoa sach cong dung truoc (6 * 7 = 42)
+  [ OK ] gan xoa sach cong dung truoc: min = 7
+  [ OK ] 100 vong ngau nhien: gan + cong + sum/min/max khop mang thuong
 
-=== MỞ RỘNG: CẬP NHẬT AFFINE (mod p) ===
-  [ OK ] tổng ban đầu
-  [ OK ] sau x -> 2x+1 trên toàn đoạn
-  [ OK ] sau x -> 2x+1 trên đoạn con [1,2]
-  [ OK ] affine(0,4) hoạt động như phép gán
-  [ OK ] hợp thành thể: nhân rồi cộng = 23
-  [ OK ] hợp thành thể: cộng rồi nhân = 26 (không giao hoán)
-  [ OK ] 60 vòng ngẫu nhiên: affine mod 998244353 khớp mảng thường
+=== MO RONG: CAP NHAT AFFINE (mod p) ===
+  [ OK ] tong ban dau
+  [ OK ] sau x -> 2x+1 tren toan doan
+  [ OK ] sau x -> 2x+1 tren doan con [1,2]
+  [ OK ] affine(0,4) hoat dong nhu phep gan
+  [ OK ] hop thanh the: nhan roi cong = 23
+  [ OK ] hop thanh the: cong roi nhan = 26 (khong giao hoan)
+  [ OK ] 60 vong ngau nhien: affine mod 998244353 khop mang thuong
 
 ---------------------------------------------
-Tổng kết: 71 đạt, 0 hỏng
-      Tổng kết: 71 đạt, 0 hỏng
+Tong ket: 71 dat, 0 hong
+      Tong ket: 71 dat, 0 hong
 
-[3/4] Test cố định trong tests\cases
+[3/4] Test co dinh trong tests\cases
       [ OK ] 01_basic_sample.in
       [ OK ] 02_single_element.in
       [ OK ] 05_negative_values.in
@@ -198,10 +198,11 @@ Tổng kết: 71 đạt, 0 hỏng
       [ OK ] 15_basic_query_example.in
       [ OK ] 16_boundary_n_large.in
       [ OK ] 19_adversarial_alternating_n100000.in
-      Kết quả: 12 đạt, 0 hỏng trên tổng 12 test cố định
+      Ket qua: 12 dat, 0 hong tren tong 12 test co dinh
 
-[4/4] Stress test: BỎ QUA (-SkipStress)
+[4/4] Stress test: BO QUA (-SkipStress)
 
 ============================================================
- KẾT QUẢ CHUNG: TẤT CẢ CÁC BƯỚC ĐỀU ĐẠT
+ KET QUA CHUNG: TAT CA CAC BUOC DEU DAT
 ============================================================
+

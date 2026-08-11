@@ -1,6 +1,6 @@
 # =============================================================================
 #  Makefile - Bien dich chuyen de 6 tren Linux / macOS / MSYS2 shell.
-#  Tren Windows PowerShell, hay dung .\build.ps1 (khong can cai make).
+#  Tren Windows PowerShell, hay dung .\scripts\build.ps1 (khong can cai make).
 #
 #  Muc tieu:
 #      make            bien dich tat ca vao thu muc bin/
