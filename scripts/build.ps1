@@ -1,10 +1,10 @@
 # =============================================================================
 #  build.ps1 - Bien dich toan bo chuong trinh cua chuyen de 6 (Windows).
 #
-#  CACH DUNG:
-#      .\build.ps1                    # bien dich ban toi uu (-O2)
-#      .\build.ps1 -Debug             # them -g -fsanitize=undefined + kiem tra tran
-#      .\build.ps1 -Compiler "C:\path\to\g++.exe"
+#  CACH DUNG (chay tu thu muc goc du an):
+#      .\scripts\build.ps1                    # bien dich ban toi uu (-O2)
+#      .\scripts\build.ps1 -Debug             # them -g -fsanitize=undefined + kiem tra tran
+#      .\scripts\build.ps1 -Compiler "C:\path\to\g++.exe"
 #
 #  Ket qua dat trong thu muc .\bin\
 #  Script tu do tim g++; khong co duong dan ca nhan nao duoc gan cung.
@@ -15,7 +15,7 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
-$root = Split-Path -Parent $MyInvocation.MyCommand.Path
+$root = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
 Set-Location $root
 
 # --- Tim trinh bien dich -----------------------------------------------------

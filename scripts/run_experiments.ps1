@@ -8,19 +8,19 @@
 #      results\end_to_end.csv      do thoi gian tron goi tren tep du lieu that
 #      results\results.md          bang ket qua dinh dang Markdown cho bao cao
 #
-#  CACH DUNG:
-#      .\run_experiments.ps1                 # bo day du (vai phut)
-#      .\run_experiments.ps1 -Quick          # ban rut gon, chay nhanh
+#  CACH DUNG (chay tu thu muc goc du an):
+#      .\scripts\run_experiments.ps1                 # bo day du (vai phut)
+#      .\scripts\run_experiments.ps1 -Quick          # ban rut gon, chay nhanh
 # =============================================================================
 param([switch]$Quick)
 
 $ErrorActionPreference = "Stop"
-$root = Split-Path -Parent $MyInvocation.MyCommand.Path
+$root = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
 Set-Location $root
 
 foreach ($e in @("segtree", "bench", "generator")) {
     if (-not (Test-Path (Join-Path $root "bin\$e.exe"))) {
-        Write-Host "THIEU bin\$e.exe - hay chay .\build.ps1 truoc." -ForegroundColor Red
+        Write-Host "THIEU bin\$e.exe - hay chay .\scripts\build.ps1 truoc." -ForegroundColor Red
         exit 1
     }
 }

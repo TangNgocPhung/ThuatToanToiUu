@@ -1,7 +1,7 @@
 ﻿<?xml version='1.0' encoding='UTF-8'?>
 <svg xmlns='http://www.w3.org/2000/svg' width='760' height='460' viewBox='0 0 760 460' font-family='Segoe UI, Arial, sans-serif'>
 <rect width='760' height='460' fill='#ffffff'/>
-<text x='380' y='28' text-anchor='middle' font-size='17' font-weight='600' fill='#111'>Kiem chung O(log N): ns/op theo log2(N), truc tung tuyen tinh</text>
+<text x='380' y='28' text-anchor='middle' font-size='17' font-weight='600' fill='#111'>Kiểm chứng O(log N): ns/op theo log2(N), trục tung tuyến tính</text>
 <line x1='90' y1='390' x2='550' y2='390' stroke='#e8e8e8'/>
 <text x='80' y='394' text-anchor='end' font-size='11' fill='#555'>0</text>
 <line x1='90' y1='322' x2='550' y2='322' stroke='#e8e8e8'/>
@@ -29,7 +29,7 @@
 <line x1='90' y1='50' x2='90' y2='390' stroke='#333' stroke-width='1.5'/>
 <line x1='90' y1='390' x2='550' y2='390' stroke='#333' stroke-width='1.5'/>
 <text x='320' y='438' text-anchor='middle' font-size='13' fill='#333'>log2(N)</text>
-<text x='22' y='220' text-anchor='middle' font-size='13' fill='#333' transform='rotate(-90 22 220)'>ns moi thao tac</text>
+<text x='22' y='220' text-anchor='middle' font-size='13' fill='#333' transform='rotate(-90 22 220)'>ns mỗi thao tác</text>
 <line x1='90' y1='355.528907888326' x2='550' y2='113.204324405811' stroke='#999' stroke-width='1.5' stroke-dasharray='6 4'/>
 <polyline points='90,329.774896156652 243.333333333333,307.40557187198 396.666666666667,205.938170472686 550,94.3478260869565' fill='none' stroke='#1f77b4' stroke-width='2.5'/>
 <circle cx='90' cy='329.774896156652' r='4.5' fill='#1f77b4'/>
@@ -37,9 +37,9 @@
 <circle cx='396.666666666667' cy='205.938170472686' r='4.5' fill='#1f77b4'/>
 <circle cx='550' cy='94.3478260869565' r='4.5' fill='#1f77b4'/>
 <rect x='574' y='51' width='13' height='13' fill='#1f77b4' rx='2'/>
-<text x='593' y='62' font-size='12' fill='#222'>Do duoc</text>
+<text x='593' y='62' font-size='12' fill='#222'>Đo được</text>
 <rect x='574' y='73' width='13' height='13' fill='#999999' rx='2'/>
-<text x='593' y='84' font-size='12' fill='#222'>Hoi quy tuyen tinh</text>
+<text x='593' y='84' font-size='12' fill='#222'>Hồi quy tuyến tính</text>
 <text x='574' y='120' font-size='11' fill='#333'>y = 132.8*log2(N) - 1135.5</text>
 <text x='574' y='138' font-size='11' fill='#333'>R^2 = 0.9361</text>
 </svg>

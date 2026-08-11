@@ -1,7 +1,7 @@
 ﻿<?xml version='1.0' encoding='UTF-8'?>
 <svg xmlns='http://www.w3.org/2000/svg' width='760' height='460' viewBox='0 0 760 460' font-family='Segoe UI, Arial, sans-serif'>
 <rect width='760' height='460' fill='#ffffff'/>
-<text x='380' y='28' text-anchor='middle' font-size='17' font-weight='600' fill='#111'>Thoi gian moi thao tac theo KIEU TAI (Segment Tree)</text>
+<text x='380' y='28' text-anchor='middle' font-size='17' font-weight='600' fill='#111'>Thời gian mỗi thao tác theo WORKLOAD (Segment Tree)</text>
 <line x1='90' y1='390' x2='550' y2='390' stroke='#e8e8e8'/>
 <text x='80' y='394' text-anchor='end' font-size='11' fill='#555'>0</text>
 <line x1='90' y1='305' x2='550' y2='305' stroke='#e8e8e8'/>
@@ -15,7 +15,7 @@
 <line x1='90' y1='50' x2='90' y2='390' stroke='#333' stroke-width='1.5'/>
 <line x1='90' y1='390' x2='550' y2='390' stroke='#333' stroke-width='1.5'/>
 <text x='320' y='438' text-anchor='middle' font-size='13' fill='#333'>N</text>
-<text x='22' y='220' text-anchor='middle' font-size='13' fill='#333' transform='rotate(-90 22 220)'>ns moi thao tac</text>
+<text x='22' y='220' text-anchor='middle' font-size='13' fill='#333' transform='rotate(-90 22 220)'>ns mỗi thao tác</text>
 <rect x='106.1' y='336.8' width='15.1' height='53.2' fill='#1f77b4' rx='1.5'/>
 <rect x='122.7' y='326.6' width='15.1' height='63.4' fill='#ff7f0e' rx='1.5'/>
 <rect x='139.2' y='354.6' width='15.1' height='35.4' fill='#2ca02c' rx='1.5'/>
@@ -50,8 +50,8 @@
 <text x='593' y='128' font-size='12' fill='#222'>point</text>
 <rect x='574' y='139' width='13' height='13' fill='#8c564b' rx='2'/>
 <text x='593' y='150' font-size='12' fill='#222'>full</text>
-<text x='574' y='200' font-size='11' fill='#333'>Cot 'full' gan nhu khong</text>
-<text x='574' y='216' font-size='11' fill='#333'>tang theo N: cap nhat</text>
-<text x='574' y='232' font-size='11' fill='#333'>dung ngay o nut goc.</text>
+<text x='574' y='200' font-size='11' fill='#333'>Cột 'full' gần như không</text>
+<text x='574' y='216' font-size='11' fill='#333'>tăng theo N: cập nhật</text>
+<text x='574' y='232' font-size='11' fill='#333'>dừng ngay ở nút gốc.</text>
 </svg>
 

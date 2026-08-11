@@ -1,7 +1,7 @@
 ﻿<?xml version='1.0' encoding='UTF-8'?>
 <svg xmlns='http://www.w3.org/2000/svg' width='760' height='460' viewBox='0 0 760 460' font-family='Segoe UI, Arial, sans-serif'>
 <rect width='760' height='460' fill='#ffffff'/>
-<text x='380' y='28' text-anchor='middle' font-size='17' font-weight='600' fill='#111'>Thoi gian trung binh moi thao tac theo kich thuoc N (tai hon hop)</text>
+<text x='380' y='28' text-anchor='middle' font-size='17' font-weight='600' fill='#111'>Thời gian trung bình mỗi thao tác theo kích thước N (tải hỗn hợp)</text>
 <line x1='90' y1='390' x2='550' y2='390' stroke='#e8e8e8'/>
 <text x='80' y='394' text-anchor='end' font-size='11' fill='#555'>1e2</text>
 <line x1='90' y1='276.666666666667' x2='550' y2='276.666666666667' stroke='#e8e8e8'/>
@@ -21,7 +21,7 @@
 <line x1='90' y1='50' x2='90' y2='390' stroke='#333' stroke-width='1.5'/>
 <line x1='90' y1='390' x2='550' y2='390' stroke='#333' stroke-width='1.5'/>
 <text x='320' y='438' text-anchor='middle' font-size='13' fill='#333'>N (thang loga)</text>
-<text x='22' y='220' text-anchor='middle' font-size='13' fill='#333' transform='rotate(-90 22 220)'>ns moi thao tac (thang loga)</text>
+<text x='22' y='220' text-anchor='middle' font-size='13' fill='#333' transform='rotate(-90 22 220)'>ns mỗi thao tác (thang loga)</text>
 <polyline points='90,331.384464899003 243.333333333333,315.838169689468 396.666666666667,276.396698174287 550,253.070732724836' fill='none' stroke='#1f77b4' stroke-width='2.5'/>
 <circle cx='90' cy='331.384464899003' r='4.5' fill='#1f77b4'/>
 <circle cx='243.333333333333' cy='315.838169689468' r='4.5' fill='#1f77b4'/>
@@ -34,6 +34,6 @@
 <rect x='574' y='51' width='13' height='13' fill='#1f77b4' rx='2'/>
 <text x='593' y='62' font-size='12' fill='#222'>Segment Tree O(log N)</text>
 <rect x='574' y='73' width='13' height='13' fill='#d62728' rx='2'/>
-<text x='593' y='84' font-size='12' fill='#222'>Mang thuong O(N)</text>
+<text x='593' y='84' font-size='12' fill='#222'>Mảng thường O(N)</text>
 </svg>
 

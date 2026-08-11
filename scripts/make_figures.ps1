@@ -10,14 +10,14 @@
 #
 #  Tep SVG la van ban thuan, chen truc tiep vao Word/LaTeX/Markdown deu duoc.
 #
-#  CACH DUNG:  .\make_figures.ps1
+#  CACH DUNG (chay tu thu muc goc du an):  .\scripts\make_figures.ps1
 # =============================================================================
 $ErrorActionPreference = "Stop"
-$root = Split-Path -Parent $MyInvocation.MyCommand.Path
+$root = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
 Set-Location $root
 
 $csvPath = "results\benchmark.csv"
-if (-not (Test-Path $csvPath)) { throw "Chua co $csvPath. Hay chay .\run_experiments.ps1 truoc." }
+if (-not (Test-Path $csvPath)) { throw "Chua co $csvPath. Hay chay .\scripts\run_experiments.ps1 truoc." }
 New-Item -ItemType Directory -Force -Path "report\figures" | Out-Null
 
 $rows = Import-Csv $csvPath

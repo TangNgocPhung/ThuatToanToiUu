@@ -7,10 +7,10 @@
 #      3. Chay 12 test co dinh trong tests\cases va so voi dap an chuan
 #      4. Stress test ngau nhien doi chieu voi loi giai mang thuong
 #
-#  CACH DUNG:
-#      .\run_tests.ps1                       # bo day du
-#      .\run_tests.ps1 -StressRounds 20000   # stress test lau hon
-#      .\run_tests.ps1 -SkipStress           # bo qua stress test
+#  CACH DUNG (chay tu thu muc goc du an):
+#      .\scripts\run_tests.ps1                       # bo day du
+#      .\scripts\run_tests.ps1 -StressRounds 20000   # stress test lau hon
+#      .\scripts\run_tests.ps1 -SkipStress           # bo qua stress test
 #
 #  Ma thoat: 0 = tat ca dat, 1 = co buoc that bai.
 #  Nhat ky duoc ghi vao results\test_log.txt
@@ -21,7 +21,7 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
-$root = Split-Path -Parent $MyInvocation.MyCommand.Path
+$root = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
 Set-Location $root
 
 $log = Join-Path $root "results\test_log.txt"
@@ -42,7 +42,7 @@ Say "============================================================"
 
 foreach ($e in @("segtree", "unit_tests", "unit_tests_checked", "stress_test")) {
     if (-not (Test-Path (Join-Path $root "bin\$e.exe"))) {
-        Say "THIEU bin\$e.exe - hay chay .\build.ps1 truoc." "Red"
+        Say "THIEU bin\$e.exe - hay chay .\scripts\build.ps1 truoc." "Red"
         exit 1
     }
 }

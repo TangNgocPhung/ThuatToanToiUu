@@ -15,7 +15,7 @@ $root = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
 Set-Location $root
 
 $exe = Join-Path $root "bin\segtree.exe"
-if (-not (Test-Path $exe)) { throw "Chua co bin\segtree.exe. Hay chay .\build.ps1 truoc." }
+if (-not (Test-Path $exe)) { throw "Chua co bin\segtree.exe. Hay chay .\scripts\build.ps1 truoc." }
 
 $cases = Get-ChildItem (Join-Path $root "tests\cases") -Filter *.in | Sort-Object Name
 if ($cases.Count -eq 0) { throw "Khong tim thay tep .in nao trong tests\cases" }
